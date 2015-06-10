@@ -9,3 +9,7 @@ Analyzers
 Digesters
 
 http://sparkleondata.com/
+
+To run the app
+- setup the twitter credentials in sparkjob.properties
+- then run 'sbt run'
