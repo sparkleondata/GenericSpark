@@ -34,7 +34,7 @@ class TwitterAnalyzer extends AnalyzerComponent {
       val totalTweets = rdd.count()
       val topList = rdd.take(5)
       println("\nPopular topics in last 600 seconds (%s total):".format(totalTweets))
-      twitdigestor.dijest(topList)
+      twitdigestor.digest(topList)
     })
   }
 }
