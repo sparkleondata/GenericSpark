@@ -14,3 +14,5 @@ http://sparkleondata.com/
 To run the app
 - setup the twitter credentials in sparkjob.properties
 - then run 'sbt run'
+
+- added MQTT injestor for testing MQTT (this would require MQTT server running locally or remote to test)
