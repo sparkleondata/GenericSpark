@@ -1,7 +1,7 @@
 import java.sql.DriverManager
 
 import com.google.inject.Inject
-import core.TwitterJob
+import core.{MQTTJob, TwitterJob}
 import core.analyzers.AnalyzerComponent
 import core.digestors.DigestorComponent
 import core.injestors.InjestorComponent
@@ -15,7 +15,8 @@ import org.apache.spark.{SparkConf, SparkContext}
  *
  * Created by jsmammen on 5/18/15.
  */
-object TwitterSpark extends TwitterJob {
+//object GenericSpark extends TwitterJob {
+object GenericSpark extends MQTTJob {
 
 
   def main(args: Array[String]) {
@@ -24,7 +25,7 @@ object TwitterSpark extends TwitterJob {
     val dataStream = injestor.injest(ssc) // returns Dstream
 
     //Processing it
-    val analytics = analyzer.analyze(dataStream)
+    //val analytics = analyzer.analyze(dataStream) // no analytics here, so commented it
 
     ssc.start()
     println(">>>-STARTED WAITING STREAMING ---")
