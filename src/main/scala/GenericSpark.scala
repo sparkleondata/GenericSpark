@@ -4,9 +4,10 @@
  */
 
 //Main class to call other jobs
+
 import core.{TwitterSparkJob, MQTTSparkJob}
 
-object GenericSpark  {
+object GenericSpark {
 
 
   def main(args: Array[String]) {
