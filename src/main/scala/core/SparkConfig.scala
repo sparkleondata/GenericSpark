@@ -21,6 +21,6 @@ object SparkConfig {
 
   val appname = "TwitterGeneric"
 
-  val streamwindow = 2
+  val streamwindow = 60
 
 }

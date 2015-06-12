@@ -1,35 +1,20 @@
-import java.sql.DriverManager
-
-import com.google.inject.Inject
-import core.{MQTTJob, TwitterJob}
-import core.analyzers.AnalyzerComponent
-import core.digestors.DigestorComponent
-import core.injestors.InjestorComponent
-import core.injestors.components.twitter.TwitterHelper
-import org.apache.spark.streaming.twitter.TwitterUtils
-import org.apache.spark.streaming.{Seconds, StreamingContext}
-import org.apache.spark.{SparkConf, SparkContext}
-
-
 /**
  *
- * Created by jsmammen on 5/18/15.
+ * Created by jsmammen
  */
-//object GenericSpark extends TwitterJob {
-object GenericSpark extends MQTTJob {
+
+//Main class to call other jobs
+import core.{TwitterSparkJob, MQTTSparkJob}
+
+object GenericSpark  {
 
 
   def main(args: Array[String]) {
+    //Starting the MQTT job
+    //MQTTSparkJob.start(null)
 
-    //Getting the implementation of injestors/digesters/analyzers
-    val dataStream = injestor.injest(ssc) // returns Dstream
-
-    //Processing it
-    //val analytics = analyzer.analyze(dataStream) // no analytics here, so commented it
-
-    ssc.start()
-    println(">>>-STARTED WAITING STREAMING ---")
-    ssc.awaitTermination()
+    //Starting Twiitetr job
+    TwitterSparkJob.start(null)
 
   }
 
