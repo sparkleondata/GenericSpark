@@ -12,7 +12,7 @@ object MQTTSparkJob extends MQTTJob {
     val dataStream = injestor.injest(ssc) // returns Dstream
     //Processing it
     ssc.start()
-    println(">>>-STARTED WAITING STREAMING ---")
+    println(">>>-STARTED WAITING STREAMING MQTT ---")
     ssc.awaitTermination()
 
   }
