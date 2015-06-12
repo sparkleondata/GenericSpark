@@ -1,5 +1,6 @@
 package core.injestors.components.mqtt
 
+import core.digestors.DigestorComponent
 import org.apache.spark.storage.StorageLevel
 import org.eclipse.paho.client.mqttv3._
 import org.eclipse.paho.client.mqttv3.persist._
@@ -30,18 +31,14 @@ class MQTTInjestor extends InjestorComponent {
     this.topic = topic
   }
 
-
   override def injest(ssc: Any): Any = {
 
     val lines = MQTTUtils.createStream(ssc.asInstanceOf[StreamingContext], brokerUrl, topic, StorageLevel.MEMORY_ONLY_SER_2)
     println("Broker url " + brokerUrl)
     println("Broker topic " + topic)
 
-    lines.print()
-
-    return lines
-
-
+    val sensorValue = lines.map(x => x.toString)
+    return sensorValue
   }
 
 }

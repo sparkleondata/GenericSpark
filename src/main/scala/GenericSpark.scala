@@ -12,10 +12,10 @@ object GenericSpark {
 
   def main(args: Array[String]) {
     //Starting the MQTT job
-    //MQTTSparkJob.start(null)
+    MQTTSparkJob.start(null)
 
     //Starting Twiitetr job
-    TwitterSparkJob.start(null)
+    //TwitterSparkJob.start(null)
 
   }
 

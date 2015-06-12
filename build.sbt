@@ -16,6 +16,5 @@ libraryDependencies ++= Seq(
   "com.google.inject" % "guice" % "4.0",
   "org.apache.spark" %% "spark-streaming-mqtt" % "1.3.0",
   "org.eclipse.paho" % "mqtt-client" % "0.4.0"
-
 )
     
