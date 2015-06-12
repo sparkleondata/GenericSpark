@@ -17,15 +17,15 @@ import org.apache.spark.streaming.mqtt._
  */
 class MQTTInjestor extends InjestorComponent {
 
-  var brokerUrl:String = null
-  var port:String = null
-  var topic:String = null
+  var brokerUrl: String = null
+  var port: String = null
+  var topic: String = null
 
   @Inject
   def this(@Named("MQTTHost") host: String, @Named("MQTTPort") port: String,
            @Named("MQTTTopic") topic: String) = {
     this()
-    this.brokerUrl=host
+    this.brokerUrl = host
     this.port = port
     this.topic = topic
   }
@@ -34,8 +34,8 @@ class MQTTInjestor extends InjestorComponent {
   override def injest(ssc: Any): Any = {
 
     val lines = MQTTUtils.createStream(ssc.asInstanceOf[StreamingContext], brokerUrl, topic, StorageLevel.MEMORY_ONLY_SER_2)
-    println("Broker url "+brokerUrl)
-    println("Broker topic "+topic)
+    println("Broker url " + brokerUrl)
+    println("Broker topic " + topic)
 
     lines.print()
 
